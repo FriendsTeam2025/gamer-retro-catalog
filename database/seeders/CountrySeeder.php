@@ -1,0 +1,22 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Enums\CountryEnum;
+use App\Models\Country;
+use Countable;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class CountrySeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        foreach(CountryEnum::cases() as $country) {
+            Country::firstOrCreate(['name' => $country->value, 'iso_code' => $country->name]);
+        }
+    }
+}
