@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\CountryEnum;
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,7 @@ class ManufacturerFactory extends Factory
     {
         return [
             'name' => fake()->company(),
-            'country' => fake()->randomElement(array_map(fn($country) => $country->name, CountryEnum::cases())),
+            'country_id' => Country::all()->random()->id
         ];
     }
 }
