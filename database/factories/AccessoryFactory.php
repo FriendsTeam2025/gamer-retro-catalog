@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Accessory;
 use App\Models\Manufacturer;
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AccessoryFactory extends Factory
@@ -15,8 +16,8 @@ class AccessoryFactory extends Factory
         return [
             'name' => $this->faker->word(),
             'manufacturer_id' => Manufacturer::factory(),
-            'release_year' => $this->faker->year(),
-            'region' => $this->faker->countryCode(),
+            'release_year' => $this->faker->year(), 
+            'country_id' => Country::all()->random()->id,
             'accessory_type' => $this->faker->word(),
             'connectivity' => $this->faker->word(),
             'is_official' => $this->faker->boolean(),

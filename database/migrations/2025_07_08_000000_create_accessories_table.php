@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('name');
             $table->foreignUuid('manufacturer_id')->constrained();
             $table->year('release_year')->nullable();
-            $table->string('region')->nullable();
+            $table->foreignUuid('country_id')->constrained();
             $table->string('accessory_type')->nullable();
             $table->string('connectivity')->nullable();
             $table->boolean('is_official')->default(false);
